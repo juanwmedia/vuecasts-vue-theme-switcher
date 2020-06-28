@@ -5,38 +5,49 @@
       <router-link to="/about">About</router-link>
     </div>
     <div class="selector">
-      <a href="#" class="selector__link vue">Vue 🌞</a>
-      <a href="#" class="selector__link night">Night 🌚</a>
-      <a href="#" class="selector__link eighties">80's 🌈</a>
+      <a href="#" @click="changeTheme('vue')" class="selector__link vue">Vue 🌞</a>
+      <a href="#" @click="changeTheme('night')" class="selector__link night">Night 🌚</a>
+      <a href="#" @click="changeTheme('eighties')" class="selector__link eighties">80's 🌈</a>
     </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+export default {
+  name: "App",
+  created() {
+    this.element = document.getElementById("theme");
+    const theme = localStorage.getItem("theme");
+
+    if (theme) {
+      this.changeTheme(theme);
+    }
+  },
+  data() {
+    return {
+      element: null,
+    }
+  },
+  methods: {
+    changeTheme(theme) {
+      this.$store.dispatch("changeTheme", {theme, element: this.element})
+    }
+  }
+}
+</script>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+</style>
+
 <style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  background-color: white;
+  transition: all .5s ease-in-out;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-
 .selector {
   position: fixed;
   top: 0;

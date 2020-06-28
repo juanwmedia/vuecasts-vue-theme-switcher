@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
+    <img class="cat" :src="`${$store.state.baseURL}themes/${$store.state.theme}/cat.jpg`" alt="Cat">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quod voluptatum impedit animi obcaecati dolor reprehenderit quam neque temporibus! Maiores nobis obcaecati illum dolorum natus labore culpa saepe asperiores quas!</p>
     <p>In repudiandae voluptatum quo doloremque inventore placeat maxime vel consectetur vitae odit! Tempora saepe fugit at voluptas voluptatem alias harum quisquam minima aliquid culpa, necessitatibus nobis provident rem exercitationem? Debitis!</p>
     <p>Tempore, delectus error molestiae illum nihil sunt rerum nostrum, culpa excepturi ducimus vel. Odio ab cumque voluptatum laborum! Officia est quis architecto maxime repudiandae minima itaque velit porro fugit consectetur.</p>
